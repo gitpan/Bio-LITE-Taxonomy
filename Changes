@@ -2,3 +2,6 @@ Revision history for Bio-LITE-Taxonomy
 
 0.01    Mon Oct 8 12:43:04 2010
         First version, released to CPAN
+
+0.02    Tue Oct 9 10:30:22 2010
+        Make happy Pod::Coverage

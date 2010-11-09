@@ -112,7 +112,7 @@ use warnings;
 use Carp qw/croak/;
 
 use vars qw/$VERSION @ISA/;
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 # sub new
 #   {
@@ -188,6 +188,7 @@ sub get_taxonomy
 # It would be simpler to return a hash reference, but (specially in the NCBI taxonomy)
 # many taxons has not associated level (i.e. C<no rank>) which would imply collapsing the keys.
 # And of course, use an ordered hash or keep an extra array with the ordering.
+# The code for doing this is commented below.
 # Look for user feedback about this.
 sub get_taxonomy_with_levels
     {
@@ -224,44 +225,44 @@ sub get_taxonomy_from_name
             return $self->get_taxonomy($self->{names}{$name});
           }
 
-# Currently not in use.
-sub _get_taxonomy
-      {
-        my ($self,$taxid) = @_;
-        return undef unless (defined $taxid);
-        return "" unless defined ${$self->{nodes}->{$taxid}}{name};
-        my %taxonomy;
-        my @order;
-        while (${$self->{nodes}->{$taxid}}{name} ne "root"){
-          push @{$taxonomy{${$self->{nodes}->{$taxid}}{level}}}, ${$self->{nodes}->{$taxid}}{name};
-          push @order, ${$self->{nodes}->{$taxid}}{level};
-          $taxid = ${$self->{nodes}->{$taxid}}{parent};
-        }
-        return (\%taxonomy,\@order);
-      }
+# Currently not in use. May apply in the future
+# sub _get_taxonomy
+#       {
+#         my ($self,$taxid) = @_;
+#         return undef unless (defined $taxid);
+#         return "" unless defined ${$self->{nodes}->{$taxid}}{name};
+#         my %taxonomy;
+#         my @order;
+#         while (${$self->{nodes}->{$taxid}}{name} ne "root"){
+#           push @{$taxonomy{${$self->{nodes}->{$taxid}}{level}}}, ${$self->{nodes}->{$taxid}}{name};
+#           push @order, ${$self->{nodes}->{$taxid}}{level};
+#           $taxid = ${$self->{nodes}->{$taxid}}{parent};
+#         }
+#         return (\%taxonomy,\@order);
+#       }
 
-# Currently not in use.
-sub get_taxonomy1
-        {
-          my ($self,$taxid) = @_;
-          my ($t,$o) = $self->_get_taxonomy($taxid);
-          my @taxonomy;
-          for my $l (@$o) {
-            push @taxonomy,shift @{$t->{$l}};
-          }
-          return reverse do{pop @taxonomy; @taxonomy};
-        }
+# Currently not in use. May apply in the future
+# sub get_taxonomy1
+#         {
+#           my ($self,$taxid) = @_;
+#           my ($t,$o) = $self->_get_taxonomy($taxid);
+#           my @taxonomy;
+#           for my $l (@$o) {
+#             push @taxonomy,shift @{$t->{$l}};
+#           }
+#           return reverse do{pop @taxonomy; @taxonomy};
+#         }
 
-# Currently not in use.
-sub get_taxonomy_with_levels1
-          {
-            my ($self,$taxid) = @_;
-            my ($t,$o) = $self->_get_taxonomy($taxid);
-            my @taxonomy;
-            for my $l (@$o) {
-              push @taxonomy, ($l.":".shift @{$t->{$l}});
-            }
-            return join "\t",@taxonomy;
-          }
+# Currently not in use. May apply in the future
+# sub get_taxonomy_with_levels1
+#           {
+#             my ($self,$taxid) = @_;
+#             my ($t,$o) = $self->_get_taxonomy($taxid);
+#             my @taxonomy;
+#             for my $l (@$o) {
+#               push @taxonomy, ($l.":".shift @{$t->{$l}});
+#             }
+#             return join "\t",@taxonomy;
+#           }
 
 1;
