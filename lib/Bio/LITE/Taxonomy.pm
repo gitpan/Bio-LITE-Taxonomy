@@ -25,7 +25,7 @@ Bio::LITE::Taxonomy - Lightweight and efficient taxonomic tree manager
 
 =head1 DESCRIPTION
 
-This module provides easy and efficient access to different taxonomies (NCBI and RDP) with minimal dependencies and without intermediate databases. This module should be used through the specific taxonomic interface (e.g. Bio::LITE::Taxonomy::NCBI or L<Bio::LITE::Taxonomy::RDP).
+This module provides easy and efficient access to different taxonomies (NCBI and RDP) with minimal dependencies and without intermediate databases. This module should be used through the specific taxonomic interface (e.g. Bio::LITE::Taxonomy::NCBI or L<Bio::LITE::Taxonomy::RDP>).
 
 This module is not part of the Bioperl bundle. For Bioperl alternatives, see the L</"SEE ALSO"> section of this document.
 
@@ -112,7 +112,7 @@ use warnings;
 use Carp qw/croak/;
 
 use vars qw/$VERSION @ISA/;
-$VERSION = '0.02';
+$VERSION = '0.03';
 
 # sub new
 #   {

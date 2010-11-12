@@ -5,3 +5,6 @@ Revision history for Bio-LITE-Taxonomy
 
 0.02    Tue Oct 9 10:30:22 2010
         Make happy Pod::Coverage
+
+0.03    Fri Oct 12 10:42:34 2010
+        Minor bug fixes
