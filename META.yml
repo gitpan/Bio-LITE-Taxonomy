@@ -1,22 +1,14 @@
 --- #YAML:1.0
-name:               Bio-LITE-Taxonomy
-version:            0.03
-abstract:           Lightweight and efficient taxonomic tree manager
-author:
+name:                Bio-LITE-Taxonomy
+version:             0.04
+abstract:            Lightweight and efficient taxonomic tree manager
+license:             perl
+author:              
     - Miguel Pignatelli <emepyc@gmail.com>
-license:            perl
-distribution_type:  module
-configure_requires:
-    ExtUtils::MakeMaker:  0
-build_requires:
-    ExtUtils::MakeMaker:  0
-requires:
-    Test::More:  0
-no_index:
-    directory:
-        - t
-        - inc
-generated_by:       ExtUtils::MakeMaker version 6.56
+generated_by:        ExtUtils::MakeMaker version 6.42
+distribution_type:   module
+requires:     
+    Test::More:                    0.87
 meta-spec:
-    url:      http://module-build.sourceforge.net/META-spec-v1.4.html
-    version:  1.4
+    url:     http://module-build.sourceforge.net/META-spec-v1.3.html
+    version: 1.3

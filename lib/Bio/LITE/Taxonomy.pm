@@ -27,7 +27,9 @@ Bio::LITE::Taxonomy - Lightweight and efficient taxonomic tree manager
 
 This module provides easy and efficient access to different taxonomies (NCBI and RDP) with minimal dependencies and without intermediate databases. This module should be used through the specific taxonomic interface (e.g. Bio::LITE::Taxonomy::NCBI or L<Bio::LITE::Taxonomy::RDP>).
 
-This module is not part of the Bioperl bundle. For Bioperl alternatives, see the L</"SEE ALSO"> section of this document.
+This module is not part of the Bioperl bundle. For Bioperl alternatives, see the L</"SEE ALSO"> section of this document. It doesn't try to substitute the Bioperl alternatives neither. It presents some features that can make it a good alternative to the great Bioperl's taxonomy modules: If you are dealing with big datasets or you don't need the rest of the Bioperl bundle to run process taxonomic queries this module is for you.
+
+These modules are designed with performance in mind. The trees are stored in memory (as plain hashes). The GI to Taxid mappings provided by L<Bio::LITE::Taxonomy::NCBI::Gi2taxid> uses a very efficient algorithm. It also supports RDP taxonomies following the same interface.
 
 
 =head1 METHODS
@@ -112,30 +114,7 @@ use warnings;
 use Carp qw/croak/;
 
 use vars qw/$VERSION @ISA/;
-$VERSION = '0.03';
-
-# sub new
-#   {
-#     my ($class, %args) = @_;
-#     my $newTree;
-
-#     if (! defined $args{db} ) {
-#       croak "db should be specified (NCBI or RDP)"
-#     } elsif ($args{db} eq "NCBI") {
-#       defined $args{'nodes'} or croak "Need the file nodes.dmp";
-#       defined $args{'names'} or croak "Need the file names.dmp";
-#       require Taxonomy::NCBI;
-#       $newTree = Taxonomy::NCBI->new(%args);
-#     } elsif ($args{db} eq "RDP" or $args{db} eq "rdp") {
-#       defined $args{'bergeyXML'} or croak "Need the file bergeyTrainingTree.xml";
-#       require Taxonomy::RDP;
-#       $newTree = Taxonomy::RDP->new(%args);
-#     } else {
-#       croak "db should be one of NCBI or RDP";
-#     }
-#     my $self = bless $newTree, $class;
-#     return $self;
-#   }
+$VERSION = '0.04';
 
 sub _check_level
   {
