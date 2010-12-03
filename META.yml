@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Bio-LITE-Taxonomy
-version:            0.05
+version:            0.06
 abstract:           Lightweight and efficient taxonomic tree manager
 author:
     - Miguel Pignatelli <emepyc@gmail.com>

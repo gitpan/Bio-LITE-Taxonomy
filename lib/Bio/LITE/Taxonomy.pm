@@ -25,11 +25,11 @@ Bio::LITE::Taxonomy - Lightweight and efficient taxonomic tree manager
 
 =head1 DESCRIPTION
 
-This module provides easy and efficient access to different taxonomies (NCBI and RDP) with minimal dependencies and without intermediate databases. This module should be used through the specific taxonomic interface (e.g. Bio::LITE::Taxonomy::NCBI or L<Bio::LITE::Taxonomy::RDP>).
+This module provides easy and efficient access to different taxonomies (NCBI and RDP) with minimal dependencies and without intermediate databases. This module should be used through specific taxonomic interfaces (e.g. L<Bio::LITE::Taxonomy::NCBI> or L<Bio::LITE::Taxonomy::RDP>).
 
-This module is not part of the Bioperl bundle. For Bioperl alternatives, see the L</"SEE ALSO"> section of this document. It doesn't try to substitute the Bioperl alternatives neither. It presents some features that can make it a good alternative to the great Bioperl's taxonomy modules: If you are dealing with big datasets or you don't need the rest of the Bioperl bundle to run process taxonomic queries this module is for you.
+This module is not part of the Bioperl bundle. For Bioperl alternatives, see the L</"SEE ALSO"> section of this document. If you are dealing with big datasets or you don't need the rest of the Bioperl bundle to process taxonomic queries this module is for you.
 
-These modules are designed with performance in mind. The trees are stored in memory (as plain hashes). The GI to Taxid mappings provided by L<Bio::LITE::Taxonomy::NCBI::Gi2taxid> uses a very efficient algorithm. It also supports RDP taxonomies following the same interface.
+These modules are designed with performance in mind. The trees are stored in memory (as plain hashes). The GI to Taxid mappings provided by L<Bio::LITE::Taxonomy::NCBI::Gi2taxid> are very efficient. It also supports both NCBI and RDP taxonomies following the same interface.
 
 
 =head1 METHODS
@@ -45,7 +45,7 @@ Accepts a taxid as input and returns an array with its ascendants ordered from t
   my @tax = $tax->get_taxonomy($taxid);
   print "$_\n" for (@tax);
 
-If called in scalar context, returns an array reference instead of the array.
+If called in scalar context, returns an array reference.
 
 =item get_taxonomy_with_levels
 
@@ -56,7 +56,7 @@ The same as get_taxonomy but instead of getting the ascendants returns an array 
     print "Taxon $l->[0] has rank $l->[1]\n";
   }
 
-If called in scalar context, returns an array reference instead of the array.
+If called in scalar context, returns an array reference.
 
 =item get_taxid_from_name
 
@@ -69,7 +69,7 @@ Same as before but returns the full taxonomy of the scientific name. This is the
  my $taxid = $tax->get_taxid_from_name($name);
  my @taxonomy = $tax->get_taxonomy($taxid);
 
-If called in scalar context returns an array reference instead of the array.
+If called in scalar context returns an array reference.
 
 =item get_term_at_level
 
@@ -114,7 +114,7 @@ use warnings;
 use Carp qw/croak/;
 
 use vars qw/$VERSION @ISA/;
-$VERSION = '0.05';
+$VERSION = '0.06';
 
 sub _check_level
   {
