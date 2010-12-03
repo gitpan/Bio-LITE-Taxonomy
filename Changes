@@ -1,5 +1,8 @@
 Revision history for Bio-LITE-Taxonomy
 
+0.05    Fri Dec 3 13:04:51 2010
+        Tests refactored
+
 0.04	Wed Dec 1 01:07:37 2010
 	More tests have been added
 	Improved documentation

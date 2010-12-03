@@ -114,7 +114,7 @@ use warnings;
 use Carp qw/croak/;
 
 use vars qw/$VERSION @ISA/;
-$VERSION = '0.04';
+$VERSION = '0.05';
 
 sub _check_level
   {

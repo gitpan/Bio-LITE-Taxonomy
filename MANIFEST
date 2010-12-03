@@ -3,7 +3,6 @@ MANIFEST
 Makefile.PL
 README
 lib/Bio/LITE/Taxonomy.pm
-lib/Bio/LITE/RDP.pm
 t/00-load.t
 t/03-manifest.t
 t/01-pod.t
