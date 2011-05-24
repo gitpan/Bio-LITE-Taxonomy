@@ -114,7 +114,7 @@ use warnings;
 use Carp qw/croak/;
 
 use vars qw/$VERSION @ISA/;
-$VERSION = '0.06';
+$VERSION = '0.07';
 
 sub _check_level
   {
@@ -155,7 +155,7 @@ sub get_taxonomy
         push @taxonomy, ${$self->{nodes}->{$taxid}}{name};
         $taxid = ${$self->{nodes}->{$taxid}}{parent};
       }
-      pop @taxonomy;
+#      pop @taxonomy;  # Causes lost of first non-root annotation
       return wantarray
         ? reverse @taxonomy
           : [reverse @taxonomy];
@@ -179,7 +179,7 @@ sub get_taxonomy_with_levels
         push @taxonomy, [${$self->{nodes}->{$taxid}}{name},${$self->{nodes}->{$taxid}}{level}];
         $taxid = ${$self->{nodes}->{$taxid}}{parent};
       }
-      pop @taxonomy; # Last element is cellular_organism... always?
+#      pop @taxonomy; # Last element is cellular_organism... always?
       return wantarray 
         ? reverse @taxonomy
           :  [reverse @taxonomy];

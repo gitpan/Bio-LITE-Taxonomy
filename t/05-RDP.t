@@ -105,8 +105,8 @@ SKIP: {
         @tax = $taxRDP->get_taxonomy(22075);
 	};
 	is($@,"",""); # T6
-	ok($#tax == 6, "");                   # T7
-	is($tax[0],"Firmicutes", "");       # T8
+	ok($#tax == 7, "");                   # T7
+	is($tax[0],"Bacteria", "");       # T8
 
 	eval {
 	  $tax = $taxRDP->get_taxonomy(22075);

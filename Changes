@@ -1,5 +1,8 @@
 Revision history for Bio-LITE-Taxonomy
 
+0.07	Tue May 24 11:52:14 2011
+	Taxonomies now start in the first non-"root" level instead of the second.
+
 0.06    Fri Dec 3 15:06:31 2010
         Small documentation changes
 

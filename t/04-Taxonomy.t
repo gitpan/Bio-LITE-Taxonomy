@@ -26,7 +26,7 @@ BEGIN {
 #   };
 #   is($@,"",""); # T4
 #   ok($#tax == 6, "");                   # T5
-#   is($tax[0],"Firmicutes", "");       # T6
+#   is($tax[0],"Bacteria", "");       # T6
 
 #   my $level;
 #   eval {
@@ -55,7 +55,7 @@ BEGIN {
 #     @tax = $taxNCBI->get_taxonomy(1442);
 #   };
 #   is($@,"",""); # T10
-#   ok($#tax == 8, "");                   # T11
+#   ok($#tax == 9, "");                   # T11
 #   is($tax[0],"Bacteria", "");       # T12
 
 #   eval {
